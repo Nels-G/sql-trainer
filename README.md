@@ -44,7 +44,7 @@ SELECT * FROM utilisateurs WHERE age > 18;
 
 ```bash
 # Cloner le dépôt
-git clone https://github.com/GalleyNelson/sql-trainer.git
+git clone https://github.com/Nels-G/sql-trainer.git
 
 # Accéder au dossier
 cd sql-trainer
