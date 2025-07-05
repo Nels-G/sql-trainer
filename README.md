@@ -83,20 +83,3 @@ Ce projet est sous licence [CC BY-NC 4.0](https://creativecommons.org/licenses/b
 
 </div>
 ```
-
-
-Exemple de style CSS intégré (pour GitHub Markdown) :
-```markdown
-<style>
-  .markdown-body table {
-    margin: 1em 0;
-    border-collapse: collapse;
-  }
-  .markdown-body table td, .markdown-body table th {
-    padding: 0.6em 1em;
-    border: 1px solid #dfe2e5;
-  }
-</style>
-```
-
-Cette présentation attirera plus d'attention et de contributeurs ! 🎨
