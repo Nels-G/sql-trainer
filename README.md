@@ -5,10 +5,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ![HTML/CSS/JS](https://img.shields.io/badge/Stack-HTML%2FCSS%2FJS-orange)
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Nels-G/sql-trainer/main/screenshots/preview.png" alt="Preview" width="600">
-</p>
-
 ## 🚀 Fonctionnalités
 
 - Interface type PHPMyAdmin 100% frontend
