@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Trainer - Documentation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Styles spécifiques à la documentation */
+        .doc-container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .doc-header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #4a6cf7;
+            padding-bottom: 15px;
+        }
+        
+        .doc-section {
+            margin-bottom: 30px;
+        }
+        
+        .doc-section h2 {
+            color: #4a6cf7;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .doc-section h2 i {
+            margin-right: 10px;
+        }
+        
+        .code-block {
+            background: #f5f7fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        
+        .feature-card {
+            background: #f9f9f9;
+            border-left: 4px solid #4a6cf7;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            color: #4a6cf7;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="doc-container">
+        <div class="doc-header">
+            <h1><i class="fas fa-book"></i> Documentation SQL Trainer</h1>
+            <p>Apprenez à utiliser le simulateur de base de données</p>
+        </div>
+        
+        <div class="doc-section">
+            <h2><i class="fas fa-info-circle"></i> Qu'est-ce que SQL Trainer ?</h2>
+            <div class="feature-card">
+                <p>SQL Trainer est une application web qui simule une interface de gestion de bases de données comme PHPMyAdmin, mais avec :</p>
+                <ul>
+                    <li><strong>Aucune installation requise</strong> - Fonctionne directement dans le navigateur</li>
+                    <li><strong>Stockage local</strong> - Toutes vos données sont sauvegardées dans votre navigateur</li>
+                    <li><strong>Interface simplifiée</strong> - Parfaite pour apprendre les bases du SQL</li>
+                    <li><strong>Requêtes supportées</strong> : SELECT, INSERT, UPDATE, DELETE, CREATE TABLE, etc.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="doc-section">
+            <h2><i class="fas fa-sign-in-alt"></i> Premiers pas</h2>
+            <h3>Connexion</h3>
+            <p>Utilisez les identifiants par défaut :</p>
+            <div class="code-block">
+                Nom d'utilisateur: Admin<br>
+                Mot de passe: Nels123
+            </div>
+            
+            <h3>Créer votre première base</h3>
+            <ol>
+                <li>Cliquez sur "Nouvelle" dans la sidebar</li>
+                <li>Entrez un nom (ex: "ma_premiere_bdd")</li>
+                <li>Validez avec le bouton "Créer"</li>
+            </ol>
+        </div>
+        
+        <div class="doc-section">
+            <h2><i class="fas fa-table"></i> Gestion des tables</h2>
+            <div class="feature-card">
+                <h3>Créer une table</h3>
+                <ol>
+                    <li>Sélectionnez une base de données</li>
+                    <li>Allez dans l'onglet "Structure"</li>
+                    <li>Cliquez sur "Nouvelle table"</li>
+                    <li>Renseignez le nom et les colonnes</li>
+                </ol>
+                
+                <div class="code-block">
+                    Exemple de structure :<br>
+                    id - INT (clé primaire)<br>
+                    nom - VARCHAR(255)<br>
+                    email - VARCHAR(255)<br>
+                    date_inscription - DATE
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Insérer des données</h3>
+                <p>Dans l'onglet SQL, exécutez :</p>
+                <div class="code-block">
+                    INSERT INTO ma_table (id, nom, email) VALUES<br>
+                    (1, 'Pierre', 'pierre@exemple.com'),<br>
+                    (2, 'Sophie', 'sophie@exemple.com');
+                </div>
+            </div>
+        </div>
+        
+        <div class="doc-section">
+            <h2><i class="fas fa-code"></i> Requêtes SQL supportées</h2>
+            
+            <div class="feature-card">
+                <h3>SELECT - Lire des données</h3>
+                <div class="code-block">
+                    -- Sélection simple<br>
+                    SELECT * FROM utilisateurs;<br><br>
+                    
+                    -- Avec condition<br>
+                    SELECT nom, email FROM utilisateurs WHERE id = 1;<br><br>
+                    
+                    -- Trier les résultats<br>
+                    SELECT * FROM produits ORDER BY prix DESC;
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <h3>INSERT/UPDATE/DELETE - Modifier des données</h3>
+                <div class="code-block">
+                    -- Insertion<br>
+                    INSERT INTO clients (nom, ville) VALUES ('Alice', 'Paris');<br><br>
+                    
+                    -- Mise à jour<br>
+                    UPDATE clients SET ville = 'Lyon' WHERE nom = 'Alice';<br><br>
+                    
+                    -- Suppression<br>
+                    DELETE FROM clients WHERE id = 5;
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Gestion des tables</h3>
+                <div class="code-block">
+                    -- Créer une table<br>
+                    CREATE TABLE produits (<br>
+                        id INT,<br>
+                        nom VARCHAR(255),<br>
+                        prix DECIMAL(10,2)<br>
+                    );<br><br>
+                    
+                    -- Supprimer une table<br>
+                    DROP TABLE produits;<br><br>
+                    
+                    -- Créer une base<br>
+                    CREATE DATABASE ma_nouvelle_bdd;<br><br>
+                    
+                    -- Supprimer une base<br>
+                    DROP DATABASE ancienne_bdd;
+                </div>
+            </div>
+        </div>
+        
+        <div class="doc-section">
+            <h2><i class="fas fa-question-circle"></i> FAQ</h2>
+            
+            <div class="feature-card">
+                <h3>Où sont stockées mes données ?</h3>
+                <p>Toutes les données sont sauvegardées dans le <strong>localStorage</strong> de votre navigateur. Elles restent disponibles même après fermeture du navigateur, mais sont spécifiques à chaque appareil/navigateur.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Comment réinitialiser l'application ?</h3>
+                <p>Exécutez cette commande dans la console de développement (F12) :</p>
+                <div class="code-block">
+                    localStorage.clear();<br>
+                    location.reload();
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Puis-je exporter mes données ?</h3>
+                <p>Pas encore, mais cette fonctionnalité est prévue dans une future version !</p>
+            </div>
+        </div>
+        
+        <a href="/index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Retour à la page de connexion</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Trainer - Tableau de bord</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Barre de navigation -->
+        <nav class="navbar">
+            <div class="navbar-left">
+                <span class="logo">SQL Trainer</span>
+                <a href="Documentation.html" style="color: white; margin-left: 20px; text-decoration: none;">
+                    <i class="fas fa-question-circle"></i> Aide
+                </a>
+                <span class="user-info">
+                    <i class="fas fa-user"></i>
+                    <span id="currentUsername">Admin</span>
+                </span>
+            </div>
+            <div class="navbar-right">
+    <a href="https://github.com/Nels-G" target="_blank" class="github-btn">
+        <i class="fab fa-github"></i> Mon GitHub
+    </a>
+    <button id="logoutBtn" class="btn-logout">
+        <i class="fas fa-sign-out-alt"></i> Déconnexion
+    </button>
+</div>
+        </nav>
+
+        <!-- Contenu principal -->
+        <div class="main-content">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <h3>Bases de données</h3>
+                    <button id="createDbBtn" class="btn-sidebar">
+                        <i class="fas fa-plus"></i> Nouvelle
+                    </button>
+                </div>
+                <div class="sidebar-content">
+                    <ul id="databaseList">
+                        <!-- Les bases de données seront ajoutées ici dynamiquement -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Zone de travail -->
+            <div class="workspace">
+                <div class="workspace-tabs">
+                    <div class="tabs" id="sqlTabs">
+                        <button class="tab active" data-tab="sql-query">SQL</button>
+                        <button class="tab" data-tab="database-structure">Structure</button>
+                    </div>
+                </div>
+
+                <div class="workspace-content">
+                    <!-- Onglet Requête SQL -->
+                    <div id="sql-query" class="tab-content active">
+                        <div class="sql-editor">
+                            <textarea id="sqlQueryInput" placeholder="Entrez votre requête SQL ici..."></textarea>
+                            <div class="sql-editor-actions">
+                                <button id="executeQueryBtn" class="btn-primary">
+                                    <i class="fas fa-play"></i> Exécuter
+                                </button>
+                                <button id="clearQueryBtn" class="btn-secondary">
+                                    <i class="fas fa-trash"></i> Effacer
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="query-results">
+                            <h3>Résultats</h3>
+                            <div id="queryResultsContainer">
+                                <p class="empty-results">Aucune requête exécutée.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Onglet Structure -->
+                    <div id="database-structure" class="tab-content">
+                        <div class="structure-container">
+                            <div class="structure-actions">
+                                <button id="createTableBtn" class="btn-primary">
+                                    <i class="fas fa-plus"></i> Nouvelle table
+                                </button>
+                            </div>
+
+                            <div id="tablesList">
+                                <p class="empty-tables">Aucune table créée.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="createDatabaseModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Créer une nouvelle base de données</h3>
+            <div class="form-group">
+                <label for="newDbName">Nom de la base de données</label>
+                <input type="text" id="newDbName" placeholder="ma_base_de_donnees">
+            </div>
+            <button id="confirmCreateDb" class="btn-primary">Créer</button>
+        </div>
+    </div>
+
+    <div id="createTableModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Créer une nouvelle table</h3>
+            <div class="form-group">
+                <label for="newTableName">Nom de la table</label>
+                <input type="text" id="newTableName" placeholder="ma_table">
+            </div>
+
+            <div class="form-group">
+                <label>Colonnes</label>
+                <div id="columnsContainer">
+                    <div class="column-item">
+                        <input type="text" placeholder="nom" class="column-name">
+                        <select class="column-type">
+                            <option value="INT">INT</option>
+                            <option value="VARCHAR">VARCHAR</option>
+                            <option value="TEXT">TEXT</option>
+                            <option value="DATE">DATE</option>
+                            <option value="BOOLEAN">BOOLEAN</option>
+                        </select>
+                        <input type="number" placeholder="Taille" class="column-size" value="255">
+                        <button class="remove-column-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+
+                <button id="addColumnBtn" class="btn-secondary">
+                    <i class="fas fa-plus"></i> Ajouter une colonne
+                </button>
+            </div>
+
+            <button id="confirmCreateTable" class="btn-primary">Créer la table</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
